@@ -12,7 +12,9 @@
     "db:migrate:dev": "prisma migrate dev",
     "challenge:add": "ts-node ./addChallenge.ts",
     "challenge:01": "npx prisma migrate dev --name init --schema=./challenge-01/prisma/schema.prisma && ts-node ./challenge-01/prisma/seed.ts",
-    "challenge:02": "npx prisma migrate dev --name init --schema=./challenge-02/prisma/schema.prisma && ts-node ./challenge-02/prisma/seed.ts"
+    "challenge:01:reset": "prisma migrate reset --schema=./challenge-01/prisma/schema.prisma",
+    "challenge:02": "npx prisma migrate dev --name init --schema=./challenge-02/prisma/schema.prisma && ts-node ./challenge-02/prisma/seed.ts",
+    "challenge:02:reset": "prisma migrate reset --schema=./challenge-02/prisma/schema.prisma"
   },
   "author": "",
   "license": "ISC",

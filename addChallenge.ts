@@ -30,7 +30,6 @@ function main() {
 }
 
 function createChallenge(name: string) {
-  const newChallengeScript = `challenge:${name}`;
   const challengeFolder = `challenge-${name}`;
 
   // get all challenge folders
@@ -129,7 +128,11 @@ npm run challenge:${name}
   // add challenge to scripts section
   const scripts = packageJson.scripts;
 
+  const newChallengeScript = `challenge:${name}`;
   scripts[newChallengeScript] = `npx prisma migrate dev --name init --schema=./${challengeFolder}/prisma/schema.prisma && ts-node ./${challengeFolder}/prisma/seed.ts`;
+
+  const newChallengeResetScript = `challenge:${name}:reset`;
+  scripts[newChallengeResetScript] = `prisma migrate reset --schema=./challenge-${name}/prisma/schema.prisma`
 
   // write the package.json file
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));

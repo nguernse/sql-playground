@@ -69,13 +69,13 @@ docker compose down -v
 - If you need to reset the database for a challenge run:
 
 ```
-npm run db:reset --schema=<path to prisma schema>
+npm run challenge:<challenge>:reset
 ```
 
 for example:
 
 ```
-npm run db:reset --schema=./challenge-01/prisma/schema.prisma
+npm run challenge:01:reset
 ```
 
 # Extending the project
