@@ -66,8 +66,21 @@ docker compose down -v
 # Troubleshooting
 
 - Make sure you have the docker container running. See step 1.
+- If you need to reset the database for a challenge run:
+
+```
+npm run db:reset --schema=<path to prisma schema>
+```
+
+for example:
+
+```
+npm run db:reset --schema=./challenge-01/prisma/schema.prisma
+```
 
 # Extending the project
+
+> **TIP**: If you do not want to manually create a challenge, you can run `npm run challenge:add` to scaffold a new challenge.
 
 This project can be extended by doing the following:
 
@@ -76,6 +89,7 @@ This project can be extended by doing the following:
 - Create ` schema.prisma` file and add your [prisma schemas](https://www.prisma.io/docs/orm/prisma-schema)
 - Create a `seed.ts` file and write the methods to [seed](https://www.prisma.io/docs/orm/prisma-migrate/workflows/seeding#integrated-seeding-with-prisma-migrate) the database using fake data with [fakerjs](https://fakerjs.dev/guide/).
 - Add a new setup script to the `package.json` file. The format is `challenge:<number>`.
+- Then follow the getting started steps
 
 Search for `challenge-01` as an example.
 
